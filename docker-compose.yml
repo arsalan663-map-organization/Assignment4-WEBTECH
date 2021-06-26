@@ -1,0 +1,10 @@
+version: "3.3"
+services:
+  api:
+    container_name: api
+    image: "arslan/webtech-project"
+    build: 
+        context: ./server
+        dockerfile: Dockerfile
+    ports: 
+        - 3030:3000
