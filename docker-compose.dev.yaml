@@ -3,8 +3,13 @@ services:
   api:
     container_name: api
     image: "arsu663/webtech-project"
+    build: 
+        context: .
+        dockerfile: DockerFile
+    depends_on: 
+        - db
     ports: 
-      - 3030:3000
+        - 3030:3000
   phpmyadmin:
     container_name: phpmyadmin
     image: phpmyadmin
@@ -19,7 +24,6 @@ services:
        PMA_HOST: db
        PMA_ARBITRARY: 1
        PMA_PORT: 3306
-       PMA_ABSOLUTE_URI: https://seekersgroup.live/phpmyadmin/
   db:
     image: mariadb:10.3
     ports:
